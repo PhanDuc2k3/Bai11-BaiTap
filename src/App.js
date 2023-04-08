@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React , { useState } from 'react';
+import styles from './styles.module.css';
 
 function App() {
+  const [time, setTime] = useState("day");
+
+  const handleNightClick = () => {
+    setTime("night");
+  };
+
+  const handleDayClick = () => {
+    setTime("day");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      Bai Tap 1
+    <div className={styles.container}>
+      <div className={styles.sidebar}>Sidebar</div>
+      <div className={styles.content}>Content</div>
+    </div>
+      Bai Tap 2
+      <div>
+      <button onClick={handleNightClick}>Night</button>
+      <button onClick={handleDayClick}>Day</button>
+      <div
+        style={{
+          width: 200,
+          height: 80,
+          backgroundColor: time === "day" ? "blue" : "black"
+        }}
+      ></div>
+    </div>
     </div>
   );
 }
